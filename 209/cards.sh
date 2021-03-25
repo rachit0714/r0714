@@ -50,12 +50,12 @@ pick_a_card ()
 {
 card_number=$RANDOM
 let "card_number %= $CARDS" # Restrict range to 0 - 51, i.e., 52 cards.
-if [ "${Deck[card_number]}" -eq $UNPICKED ]
+if [ "${Deck[card_number]}" -eq $UNPICKED ] #checks if card is unpicked
 then
-  Deck[card_number]=$PICKED
-  return $card_number
+  Deck[card_number]=$PICKED #sets to picked
+  return $card_number #returns card number
 else  
-  return $DUPE_CARD
+  return $DUPE_CARD #alerts user that the card has already been chosen
 fi
 }
 
